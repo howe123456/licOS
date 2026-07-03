@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# licOS Installer Launcher
+
+echo ""
+echo "=============================================="
+echo "         Welcome to licOS Linux!"
+echo "=============================================="
+echo ""
+echo "Starting the licOS Installer..."
+echo ""
+
+cd /root/licOS
+python3 -m installer
