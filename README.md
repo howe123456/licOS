@@ -15,7 +15,7 @@ licOS is an Arch Linux-based distribution focused on simplicity and modern deskt
 - **Animated Logo** — Lightning bolt strikes on boot and in installer corner, then settles to static
 - **Live ISO** — Bootable BIOS/UEFI image built with archiso
 
-> **ISO 镜像可在 [Releases](https://github.com/licOS/licOS/releases) 下载，约 1.5 GB。**
+> **ISO 镜像可在 [Releases](https://github.com/howe123456/licOS/releases/tag/v2026.07.03) 下载，约 1.5 GB。**
 
 ## Quick Start
 
