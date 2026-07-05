@@ -2,7 +2,7 @@
 
 > Arch Linux-based distribution with a modern TUI installer, animated Plymouth boot splash, and XFCE desktop environment — v3.0
 
-licOS is an Arch Linux-based distribution focused on simplicity and modern desktop computing. It features a curses-based terminal UI installer with support for 12 languages, LUKS encryption, flexible partitioning, and a lightning bolt logo that animates on boot and in the installer.
+licOS is an Arch Linux-based distribution focused on simplicity and modern desktop computing. It features a curses-based terminal UI installer with support for 12 languages, LUKS encryption, flexible partitioning, a lightning bolt logo that animates on boot and in the installer, and a showcase of the XFCE dark desktop theme (licOS-dark) via an interactive TUI launcher.
 
 ## Features
 
@@ -11,9 +11,12 @@ licOS is an Arch Linux-based distribution focused on simplicity and modern deskt
 - **Plymouth Boot Splash** — Lightning spark animation with progress bar on boot
 - **XFCE Desktop** — Pre-configured dark theme (licOS-dark) with lightning wallpaper
 - **LightDM Autologin** — Automatic login into XFCE on boot
-- **licos-fetch** — System info CLI tool with lightning ASCII art
-- **licos-welcome** — Interactive welcome dashboard (TUI)
-- **I/W/F/S/R Key Handler** — Boot-time keyboard shortcuts for Install/Welcome/Fetch/Shell/Reboot
+- **licos-launcher** — TUI main menu launcher (C binary, ~15K) with desktop showcase entry
+- **licos-about** — Interactive desktop showcase (TUI, C binary, ~19K) highlighting licOS features
+- **licos-fetch** — System info CLI tool with lightning ASCII art (C binary, ~15K)
+- **licos-welcome** — Interactive welcome dashboard (TUI, C binary, ~15K)
+- **licos-setup** — First-boot setup service (C binary, ~15K) that applies overrides (zshrc, XFCE config)
+- **1/I/W/F/S/R Key Handler** — Boot-time keyboard shortcuts for Launcher/Install/Welcome/Fetch/Shell/Reboot
 - **CJK Terminal Fonts** — Built-in WenQuanYi (wqy-zenhei) font for proper Chinese/Japanese/Korean display in XFCE terminal
 - **Unicode Console** — `ter-132n` wide Unicode console font with UTF-8 locale
 
@@ -38,7 +41,7 @@ licOS is an Arch Linux-based distribution focused on simplicity and modern deskt
    sudo dd bs=4M if=licOS-*.iso of=/dev/sdX status=progress
    ```
 3. Boot from the USB drive
-4. Watch the Plymouth lightning animation, then press **I** to install or **F** for system info
+4. Watch the Plymouth lightning animation, then press **1** for the desktop showcase, **I** to install, or **F** for system info
 
 ### Build from Source
 
@@ -93,17 +96,22 @@ licOS/
 │   │   │   └── xdg/            # XFCE panel, xfwm4, xsettings
 │   │   ├── root/               # Root user (live session)
 │   │   │   ├── .zshrc / .bashrc    # Welcome banner + key handler
+│   │   │   ├── start-licos     # Fallback launcher (C ELF, 15K)
 │   │   │   ├── customize_airootfs.sh  # Post-install customization
 │   │   │   └── licOS/
-│   │   │       ├── licos-installer   # Shell launcher
+│   │   │       ├── licos-installer   # Installer (C ELF, 15K)
 │   │   │       └── welcome/         # Welcome TUI app
 │   │   ├── usr/
-│   │   │   ├── local/bin/       # licos-fetch, licos-welcome
+│   │   │   ├── local/bin/       # licos-fetch, licos-welcome, licos-launcher, licos-about, licos-setup
 │   │   │   ├── share/
 │   │   │   │   ├── plymouth/    # licOS-spark boot theme
 │   │   │   │   ├── themes/      # licOS-dark GTK theme
-│   │   │   │   └── backgrounds/ # Lightning wallpaper
-│   │   │   └── .../
+│   │   │   │   ├── backgrounds/ # Lightning wallpaper
+│   │   │   └── overrides/   # First-boot config overrides (zshrc, XFCE panel)
+│   │   │       ├── root.zshrc
+│   │   │       ├── skel.zshrc
+│   │   │       ├── xfce4-panel.xml
+│   │   │       └── xfce4-xsettings.xml
 │   │   └── .../
 │   ├── packages.x86_64          # Package list
 │   ├── profiledef.sh            # Build config + file permissions
