@@ -223,4 +223,11 @@ alias fetch='licos-fetch'
 alias welcome='licos-welcome'
 BROOT
 
+# --- Font config: rebuild cache for CJK fonts ---
+echo "Rebuilding font cache..."
+fc-cache -f
+
+# --- Pre-load console font for live environment ---
+setfont ter-132n 2>/dev/null || true
+
 echo "licOS v3.0 customization complete."

@@ -14,6 +14,8 @@ licOS is an Arch Linux-based distribution focused on simplicity and modern deskt
 - **licos-fetch** — System info CLI tool with lightning ASCII art
 - **licos-welcome** — Interactive welcome dashboard (TUI)
 - **I/W/F/S/R Key Handler** — Boot-time keyboard shortcuts for Install/Welcome/Fetch/Shell/Reboot
+- **CJK Terminal Fonts** — Built-in WenQuanYi (wqy-zenhei) font for proper Chinese/Japanese/Korean display in XFCE terminal
+- **Unicode Console** — `ter-132n` wide Unicode console font with UTF-8 locale
 
 ### Installer
 
@@ -30,7 +32,7 @@ licOS is an Arch Linux-based distribution focused on simplicity and modern deskt
 
 ### Boot from ISO
 
-1. Download the latest ISO from [Releases](https://github.com/howe123456/licOS/releases/tag/v2026.07.03)
+1. Download the latest ISO from [Releases](https://github.com/howe123456/licOS/releases/tag/v3.0.0)
 2. Write to USB:
    ```bash
    sudo dd bs=4M if=licOS-*.iso of=/dev/sdX status=progress
