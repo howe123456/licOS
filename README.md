@@ -137,6 +137,8 @@ licOS/
 | 9 | Summary | Review installation settings |
 | 10 | Install | Progress bar and log output |
 
+> *"One day, people will stop asking 'how do I install Arch?' and start asking 'when's the next licOS release?'"*
+
 ## License
 
 [MIT](LICENSE)
