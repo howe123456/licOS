@@ -295,6 +295,15 @@ class Installer:
             with open(vconsole, "w") as f:
                 f.write(f"KEYMAP={self.config.keyboard_layout}\n")
 
+    def copy_mirrorlist(self):
+        mirror_src = "/etc/pacman.d/mirrorlist"
+        mirror_dst = os.path.join(INSTALL_DIR, "etc", "pacman.d", "mirrorlist")
+        if os.path.exists(mirror_src):
+            import shutil
+            os.makedirs(os.path.dirname(mirror_dst), exist_ok=True)
+            shutil.copy2(mirror_src, mirror_dst)
+            self.log("  Mirrorlist copied to target system")
+
     def install(self):
         steps = [
             (_("log_preparing"), self.prepare_disk),
@@ -302,6 +311,7 @@ class Installer:
             (_("log_mounting"), self.mount_partitions),
             (_("log_installing_base"), self.install_base),
             (_("log_generating_fstab"), self.generate_fstab),
+            ("Mirrorlist", self.copy_mirrorlist),
             (_("log_configuring"), self.configure_system),
             (_("log_bootloader"), self.install_bootloader),
             (_("log_enabling_dm"), self.enable_display_manager),

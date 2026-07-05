@@ -1,0 +1,27 @@
+## licOS mirrorlist — generated 2026-07-06
+## China mirrors (prioritized for speed)
+
+## China (USTC)
+Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+## China (Tsinghua)
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+## China (Alibaba)
+Server = https://mirrors.aliyun.com/archlinux/$repo/os/$arch
+## China (Netease 163)
+Server = https://mirrors.163.com/archlinux/$repo/os/$arch
+## China (SJTU)
+Server = https://mirror.sjtu.edu.cn/archlinux/$repo/os/$arch
+## China (Huawei Cloud)
+Server = https://mirrors.huaweicloud.com/archlinux/$repo/os/$arch
+## China (Tencent Cloud)
+Server = https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch
+## China (NJU)
+Server = https://mirrors.nju.edu.cn/archlinux/$repo/os/$arch
+
+## Global fallback
+## Germany (archlinux.org)
+Server = https://archlinux.org/$repo/os/$arch
+## USA (Princeton)
+Server = https://mirror.math.princeton.edu/pub/archlinux/$repo/os/$arch
+## Netherlands
+Server = https://ftp.nluug.nl/pub/os/Linux/distr/archlinux/$repo/os/$arch
