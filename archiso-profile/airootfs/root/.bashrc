@@ -21,15 +21,29 @@ unset -f _licos_anim
 
 echo -e "\e[36m╔══════════════════════════════════════════════╗\e[0m"
 echo -e "\e[36m║                                            \e[33m╲\e[36m ║\e[0m"
-echo -e "\e[36m║  \e[33m        Welcome to licOS Linux\e[36m           \e[33m╳\e[36m ║\e[0m"
-echo -e "\e[36m║  \e[32m     Arch Linux-based distribution\e[36m      \e[33m╱\e[36m ║\e[0m"
+echo -e "\e[36m║  \e[33m       Welcome to licOS v3.0!\e[36m             \e[33m╳\e[36m ║\e[0m"
+echo -e "\e[36m║  \e[32m     Arch Linux with XFCE Desktop\e[36m         \e[33m╱\e[36m ║\e[0m"
 echo -e "\e[36m║                                              ║\e[0m"
 echo -e "\e[36m╠══════════════════════════════════════════════╣\e[0m"
 echo -e "\e[36m║                                              ║\e[0m"
-echo -e "\e[36m║  \e[97mType '\e[32mlicos\e[97m' to start the installer\e[36m         ║\e[0m"
-echo -e "\e[36m║  \e[97mType '\e[32mhelp\e[97m'  for available commands\e[36m         ║\e[0m"
+echo -e "\e[36m║  \e[97m[\e[33mI\e[97m] Install licOS\e[36m                       ║\e[0m"
+echo -e "\e[36m║  \e[97m[\e[33mW\e[97m] Welcome Dashboard\e[36m                  ║\e[0m"
+echo -e "\e[36m║  \e[97m[\e[33mF\e[97m] System Info (licos-fetch)\e[36m           ║\e[0m"
+echo -e "\e[36m║  \e[97m[\e[33mS\e[97m] Shell (stay here)\e[36m                  ║\e[0m"
+echo -e "\e[36m║  \e[97m[\e[33mR\e[97m] Reboot\e[36m                             ║\e[0m"
 echo -e "\e[36m║                                              ║\e[0m"
 echo -e "\e[36m╚══════════════════════════════════════════════╝\e[0m"
 echo ""
 
+read -t 5 -n 1 _choice
+case "${_choice}" in
+  [iI]) /root/licOS/licos-installer ;;
+  [wW]) licos-welcome ;;
+  [fF]) licos-fetch ;;
+  [rR]) sudo reboot ;;
+esac
+unset _choice
+
 alias licos='/root/licOS/licos-installer'
+alias fetch='licos-fetch'
+alias welcome='licos-welcome'
