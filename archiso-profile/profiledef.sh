@@ -26,7 +26,8 @@ file_permissions=(
   ["/usr/local/bin/Installation_guide"]="0:0:755"
   ["/usr/local/bin/licos-fetch"]="0:0:755"
   ["/usr/local/bin/licos-welcome"]="0:0:755"
+  ["/usr/local/bin/licos-launcher"]="0:0:755"
+  ["/usr/local/bin/licos-about"]="0:0:755"
   ["/usr/local/bin/livecd-sound"]="0:0:755"
   ["/usr/local/bin/licos-setup"]="0:0:755"
 )
-#hello world
