@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=licOS Welcome
+Comment=licOS Welcome Dashboard v3.0
+Exec=licos-welcome
+Type=Application
+Categories=System;
+Terminal=true
