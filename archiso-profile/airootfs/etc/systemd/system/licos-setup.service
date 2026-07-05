@@ -1,6 +1,6 @@
 [Unit]
 Description=licOS live environment setup
-After=local-fs.target
+After=local-fs.target licos-locale.service
 Before=getty@tty1.service
 DefaultDependencies=no
 
