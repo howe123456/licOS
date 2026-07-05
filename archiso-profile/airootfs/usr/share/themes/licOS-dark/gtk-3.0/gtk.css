@@ -1,0 +1,320 @@
+/* licOS-dark GTK3 Theme
+ * Dark navy (#1a1a2e) with yellow accent (#FFD700)
+ * Based on Adwaita with CSS overrides
+ */
+
+@define-color bg_color #1a1a2e;
+@define-color bg_dark #0d0d1a;
+@define-color bg_surface #16213e;
+@define-color bg_border #0f3460;
+@define-color fg_color #ffffff;
+@define-color fg_secondary #b0b0c0;
+@define-color accent #ffd700;
+@define-color accent_dark #c8a800;
+@define-color danger #e74c3c;
+@define-color success #2ecc71;
+
+* {
+    background-color: @bg_color;
+    color: @fg_color;
+}
+
+.background {
+    background-color: @bg_color;
+}
+
+/* Window and frame styling */
+window,
+window.background,
+.message-dialog,
+.background {
+    background-color: @bg_color;
+}
+
+/* Header bars / Title bars */
+headerbar,
+.titlebar,
+windowheader {
+    background-color: @bg_dark;
+    color: @fg_color;
+    border-bottom: 1px solid @bg_border;
+}
+
+headerbar:backdrop,
+.titlebar:backdrop {
+    background-color: @bg_color;
+}
+
+/* Buttons */
+button {
+    background-color: @bg_surface;
+    color: @fg_color;
+    border: 1px solid @bg_border;
+    border-radius: 4px;
+    padding: 6px 12px;
+}
+
+button:hover {
+    border-color: @accent;
+    background-color: shade(@bg_surface, 1.2);
+}
+
+button:active,
+button:checked {
+    background-color: @accent;
+    color: @bg_dark;
+    border-color: @accent;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+
+/* Entry fields */
+entry {
+    background-color: @bg_dark;
+    color: @fg_color;
+    border: 1px solid @bg_border;
+    border-radius: 4px;
+    padding: 6px 8px;
+}
+
+entry:focus {
+    border-color: @accent;
+    box-shadow: 0 0 4px @accent;
+}
+
+/* Selection */
+selection {
+    background-color: @accent;
+    color: @bg_dark;
+}
+
+*:selected {
+    background-color: @accent;
+    color: @bg_dark;
+}
+
+/* Text view / Tree view */
+treeview {
+    background-color: @bg_color;
+    color: @fg_color;
+}
+
+treeview:selected {
+    background-color: @accent;
+    color: @bg_dark;
+}
+
+treeview.view:selected {
+    background-color: @accent;
+    color: @bg_dark;
+}
+
+/* Scrollbars */
+scrollbar {
+    background-color: @bg_dark;
+}
+
+scrollbar slider {
+    background-color: @bg_border;
+    border-radius: 4px;
+    min-width: 8px;
+    min-height: 8px;
+}
+
+scrollbar slider:hover {
+    background-color: @accent;
+}
+
+/* Menus */
+menu,
+.menu {
+    background-color: @bg_surface;
+    border: 1px solid @bg_border;
+}
+
+menuitem {
+    background-color: transparent;
+    color: @fg_color;
+    padding: 6px 12px;
+}
+
+menuitem:hover {
+    background-color: @accent;
+    color: @bg_dark;
+}
+
+/* Tooltips */
+tooltip {
+    background-color: @bg_surface;
+    color: @accent;
+    border: 1px solid @accent;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+tooltip label {
+    color: @accent;
+}
+
+/* Notebook / Tabs */
+notebook {
+    background-color: @bg_color;
+}
+
+notebook tab {
+    background-color: @bg_surface;
+    border: 1px solid @bg_border;
+    padding: 6px 12px;
+}
+
+notebook tab:checked {
+    background-color: @bg_color;
+    border-bottom-color: @accent;
+}
+
+/* Progress bars */
+progressbar {
+    background-color: @bg_dark;
+    border: 1px solid @bg_border;
+    border-radius: 4px;
+}
+
+progressbar progress {
+    background-color: @accent;
+    border-radius: 3px;
+}
+
+/* List boxes */
+list {
+    background-color: @bg_color;
+}
+
+list row {
+    background-color: @bg_color;
+    padding: 6px;
+}
+
+list row:nth-child(odd) {
+    background-color: shade(@bg_color, 0.95);
+}
+
+list row:selected {
+    background-color: @accent;
+    color: @bg_dark;
+}
+
+/* Scale / Sliders */
+scale trough {
+    background-color: @bg_dark;
+    border: 1px solid @bg_border;
+    border-radius: 4px;
+}
+
+scale highlight {
+    background-color: @accent;
+}
+
+scale slider {
+    background-color: @accent;
+    border-radius: 50%;
+}
+
+/* Checkboxes and radios */
+check,
+radio {
+    color: @fg_color;
+}
+
+check:checked,
+radio:checked {
+    color: @accent;
+}
+
+/* Status bar */
+statusbar {
+    background-color: @bg_dark;
+    color: @fg_secondary;
+}
+
+/* Info bars */
+infobar {
+    background-color: @bg_surface;
+    border: 1px solid @bg_border;
+}
+
+/* Labels */
+label {
+    color: @fg_color;
+}
+
+label:disabled {
+    color: @fg_secondary;
+}
+
+/* Links */
+label link {
+    color: @accent;
+}
+
+label link:hover {
+    color: @accent_dark;
+}
+
+/* Dialog */
+dialog {
+    background-color: @bg_color;
+}
+
+dialog .dialog-action-area button {
+    background-color: @bg_surface;
+    border: 1px solid @bg_border;
+}
+
+dialog .dialog-action-area button:first-child:active,
+dialog .dialog-action-area button:first-child:checked {
+    background-color: @accent;
+    color: @bg_dark;
+}
+
+/* Combo boxes */
+combobox button {
+    background-color: @bg_surface;
+    border: 1px solid @bg_border;
+}
+
+combobox button:hover {
+    border-color: @accent;
+}
+
+/* Spin buttons */
+spinbutton {
+    background-color: @bg_dark;
+    border: 1px solid @bg_border;
+}
+
+spinbutton button {
+    background-color: @bg_surface;
+    border: 1px solid @bg_border;
+}
+
+/* Paned */
+paned {
+    background-color: @bg_color;
+}
+
+paned separator {
+    background-color: @bg_border;
+}
+
+/* Toolbars */
+toolbar {
+    background-color: @bg_dark;
+    border-bottom: 1px solid @bg_border;
+}
+
+/* Assistant / Welcome */
+assistant {
+    background-color: @bg_color;
+}

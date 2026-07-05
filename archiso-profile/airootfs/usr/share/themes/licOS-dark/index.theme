@@ -1,0 +1,22 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=licOS-dark
+Comment=licOS Dark Theme with Yellow Lightning Accent
+Encoding=UTF-8
+
+[GNOME Shell]
+Name=licOS-dark
+ShellTheme=licOS-dark
+
+[GTK 3.0]
+Name=licOS-dark
+Module=
+
+[Metacity]
+Name=licOS-dark
+
+[Unity]
+Name=licOS-dark
+
+[XFCE]
+Name=licOS-dark

@@ -29,6 +29,7 @@ ethtool
 exfatprogs
 f2fs-tools
 fatresize
+firefox
 foot-terminfo
 fsarchiver
 gpart
@@ -45,6 +46,8 @@ iwd
 jfsutils
 kitty-terminfo
 ldns
+lightdm
+lightdm-gtk-greeter
 less
 lftp
 libfido2
@@ -86,6 +89,7 @@ openvpn
 partclone
 parted
 partimage
+plymouth
 pcsclite
 ppp
 pptpclient
@@ -123,6 +127,9 @@ wireless_tools
 wpa_supplicant
 wvdial
 xdg-utils
+xfce4
+xfce4-goodies
+xfce4-terminal
 xfsprogs
 xl2tpd
 zsh
