@@ -1,0 +1,108 @@
+/* licOS Spark - Plymouth script theme */
+/* 7-frame lightning bolt boot animation */
+
+/* Background colors (dark navy gradient) */
+Window.SetBackgroundTopColor(0.05, 0.05, 0.10);   /* #0d0d1a */
+Window.SetBackgroundBottomColor(0.10, 0.10, 0.18); /* #1a1a2e */
+
+/* Frame definitions: each frame is 3 rows of text, yellow or white */
+/* Using Unicode box-drawing and lightning characters */
+frames = [
+    [["     ", "     ", "     "], 0.6, 0.6, 0.3],   /* 0: spark (dim) */
+    [["  .  ", " ... ", "  .  "], 0.6, 0.6, 0.3],   /* 1: arc (dim) */
+    [[" \\   ", "  \\  ", "   / "], 1.0, 0.84, 0.0],  /* 2: strike (yellow) */
+    [[" \\   ", "  X  ", " /   "], 1.0, 0.84, 0.0],  /* 3: lightning (yellow) */
+    [[" === ", " =O= ", " === "], 1.0, 1.0, 1.0],    /* 4: flash (white) */
+    [[" \\   ", "  X  ", " /   "], 1.0, 0.84, 0.0],  /* 5: settle (yellow) */
+    [[" \\   ", "  X  ", " /   "], 1.0, 0.84, 0.0],  /* 6: static (yellow) */
+];
+
+FRAME_COUNT = 7;
+FRAME_DURATION = 0.3;  /* seconds per frame */
+ANIM_DURATION = FRAME_COUNT * FRAME_DURATION;  /* total animation time */
+
+/* Create sprites for each row of the lightning bolt */
+sprites = [];
+for (r = 0; r < 3; r++) {
+    img = Image.Text("");
+    spr = Sprite(img);
+    spr.SetPosition(Window.GetWidth() / 2, Window.GetHeight() / 2 - 1 + r, 100);
+    sprites[r] = spr;
+}
+
+/* Create progress bar elements */
+bar_bg = Sprite();
+bar_fill = Sprite();
+bar_bg.SetPosition(Window.GetWidth() / 2, Window.GetHeight() - 40, 100);
+bar_fill.SetPosition(Window.GetWidth() / 2, Window.GetHeight() - 40, 50);
+
+/* Helper: update frame display */
+fun show_frame(idx) {
+    if (idx >= FRAME_COUNT) {
+        idx = FRAME_COUNT - 1;  /* hold last frame */
+    }
+    frame_data = frames[idx];
+    rows = frame_data[0];
+    r = frame_data[1];
+    g = frame_data[2];
+    b = frame_data[3];
+
+    for (i = 0; i < 3; i++) {
+        img = Image.Text(rows[i]);
+        img.SetWidth(Window.GetWidth());
+        spr = sprites[i];
+        spr.SetImage(img);
+        spr.SetPosition(Window.GetWidth() / 2 - 12, Window.GetHeight() / 2 - 8 + i * 16, 100);
+        spr.SetOpacity(1.0);
+    }
+}
+
+/* Helper: draw progress bar */
+fun draw_progress(progress) {
+    bar_width = Window.GetWidth() - 200;
+    bar_height = 6;
+    bar_x = 100;
+    bar_y = Window.GetHeight() - 30;
+
+    /* Background bar */
+    bg_img = Image();
+    bg_img.SetWidth(bar_width);
+    bg_img.SetHeight(bar_height);
+    bg_img.FillRect(0, 0, bar_width, bar_height, 0.15, 0.15, 0.25, 1.0);
+    bg_img.BorderRect(0, 0, bar_width, bar_height, 0.4, 0.4, 0.5, 1.0);
+    bar_bg.SetImage(bg_img);
+    bar_bg.SetPosition(bar_x, bar_y, 50);
+
+    /* Fill bar */
+    fill_w = Math.Int(bar_width * progress);
+    if (fill_w > 0) {
+        fill_img = Image();
+        fill_img.SetWidth(fill_w);
+        fill_img.SetHeight(bar_height);
+        fill_img.FillRect(0, 0, fill_w, bar_height, 1.0, 0.84, 0.0, 1.0);
+        bar_fill.SetImage(fill_img);
+        bar_fill.SetPosition(bar_x, bar_y, 100);
+    }
+}
+
+/* Main refresh callback */
+fun refresh_callback() {
+    progress = Plymouth.GetBootProgress();
+    elapsed = progress * ANIM_DURATION * 3;  /* scale to ~1s of animation */
+
+    /* Determine which frame to show */
+    frame_idx = Math.Int(elapsed / FRAME_DURATION);
+    if (frame_idx >= FRAME_COUNT) {
+        frame_idx = FRAME_COUNT - 1;
+    }
+
+    show_frame(frame_idx);
+    draw_progress(progress);
+}
+
+/* Show initial frame immediately */
+show_frame(0);
+draw_progress(0);
+
+/* Register refresh callback */
+Plymouth.SetRefreshFunction(refresh_callback);

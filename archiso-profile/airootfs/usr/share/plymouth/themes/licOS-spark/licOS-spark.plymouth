@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=licOS Spark
+Description=licOS Lightning Bolt Boot Animation
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/licOS-spark
+ScriptFile=/usr/share/plymouth/themes/licOS-spark/licOS-spark.script
