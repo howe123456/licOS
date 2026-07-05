@@ -18,7 +18,7 @@ file_permissions=(
   ["/etc/shadow"]="0:0:400"
   ["/root"]="0:0:750"
   ["/root/.automated_script.sh"]="0:0:755"
-  ["/root/customize_airootfs.sh"]="0:0:755"
+  ["/etc/systemd/system/licos-setup.service"]="0:0:644"
   ["/root/start-licos"]="0:0:755"
   ["/root/licOS/licos-installer"]="0:0:755"
   ["/root/licOS/welcome/welcome.py"]="0:0:755"
@@ -27,5 +27,6 @@ file_permissions=(
   ["/usr/local/bin/licos-fetch"]="0:0:755"
   ["/usr/local/bin/licos-welcome"]="0:0:755"
   ["/usr/local/bin/livecd-sound"]="0:0:755"
+  ["/usr/local/bin/licos-setup"]="0:0:755"
 )
 #hello world
