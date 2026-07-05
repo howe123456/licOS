@@ -1,0 +1,12 @@
+[Unit]
+Description=Generate locales for licOS live environment
+Before=licos-setup.service
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/locale-gen
+
+[Install]
+WantedBy=sysinit.target
