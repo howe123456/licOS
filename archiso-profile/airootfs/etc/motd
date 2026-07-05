@@ -2,7 +2,7 @@
 
   \e[1;37mWelcome to licOS Linux Live/Installer!\e[0m
 
-  \e[33m  [1] ⚡ 特色桌面\e[0m  — Desktop Showcase (\e[1mlicos-launcher\e[0m)
+  \e[33m  [1]\e[0m Desktop Showcase       — TUI launcher (\e[1mlicos-launcher\e[0m)
   \e[33m  [I]\e[0m Install licOS           — Start the TUI installer
   \e[33m  [W]\e[0m Welcome Dashboard       — Interactive welcome screen
   \e[33m  [F]\e[0m System Info              — Display system information

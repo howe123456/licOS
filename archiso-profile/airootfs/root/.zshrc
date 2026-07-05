@@ -25,7 +25,7 @@ print -P "%F{cyan}║  %F{green}    Lightning XFCE Desktop%F{cyan}              
 print -P "%F{cyan}║                                              ║%f"
 print -P "%F{cyan}╠══════════════════════════════════════════════╣%f"
 print -P "%F{cyan}║                                              ║%f"
-print -P "%F{cyan}║  %F{white}[%F{yellow}1%F{white}] %F{yellow}⚡ 特色桌面%F{cyan}  (Desktop Showcase)     ║%f"
+print -P "%F{cyan}║  %F{white}[%F{yellow}1%F{white}] Desktop Showcase%F{cyan}                     ║%f"
 print -P "%F{cyan}║  %F{white}[%F{yellow}I%F{white}] Install licOS%F{cyan}                       ║%f"
 print -P "%F{cyan}║  %F{white}[%F{yellow}W%F{white}] Welcome Dashboard%F{cyan}                  ║%f"
 print -P "%F{cyan}║  %F{white}[%F{yellow}F%F{white}] System Info (licos-fetch)%F{cyan}           ║%f"
