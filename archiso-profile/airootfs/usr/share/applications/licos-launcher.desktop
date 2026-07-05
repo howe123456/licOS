@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=licOS 启动器
+Name[en]=licOS Launcher
+Comment=licOS 主启动器菜单 v3.0
+Comment[en]=licOS Main Launcher Menu v3.0
+Exec=licos-launcher
+Icon=utilities-terminal
+Type=Application
+Categories=System;
+Terminal=true

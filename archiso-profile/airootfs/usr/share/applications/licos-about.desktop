@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=licOS 特色桌面
+Name[en]=licOS Featured Desktop
+Comment=licOS 特色桌面展示 - 闪电主题 XFCE
+Comment[en]=licOS Desktop Showcase - Lightning XFCE Theme
+Exec=licos-about
+Icon=preferences-desktop
+Type=Application
+Categories=System;
+Terminal=true
