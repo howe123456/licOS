@@ -4,7 +4,7 @@
 iso_name="licOS"
 iso_label="LICOS_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m)"
 iso_publisher="licOS <https://licos.dev>"
-iso_application="licOS Linux Live/Installer DVD"
+iso_application="licOS Linux Live/Installer DVD v3.0"
 iso_version="$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m.%d)"
 install_dir="licos"
 buildmodes=('iso')
@@ -18,9 +18,14 @@ file_permissions=(
   ["/etc/shadow"]="0:0:400"
   ["/root"]="0:0:750"
   ["/root/.automated_script.sh"]="0:0:755"
+  ["/root/customize_airootfs.sh"]="0:0:755"
   ["/root/start-licos"]="0:0:755"
   ["/root/licOS/licos-installer"]="0:0:755"
+  ["/root/licOS/welcome/welcome.py"]="0:0:755"
   ["/usr/local/bin/choose-mirror"]="0:0:755"
   ["/usr/local/bin/Installation_guide"]="0:0:755"
+  ["/usr/local/bin/licos-fetch"]="0:0:755"
+  ["/usr/local/bin/licos-welcome"]="0:0:755"
   ["/usr/local/bin/livecd-sound"]="0:0:755"
 )
+#hello world
