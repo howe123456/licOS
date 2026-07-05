@@ -166,4 +166,3 @@ BOOTLOADER_BIOS_CMDS = {
         "grub-mkconfig -o /boot/grub/grub.cfg",
     ],
 }
-#hello world
