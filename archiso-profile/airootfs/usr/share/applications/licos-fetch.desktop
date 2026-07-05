@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=System Info (licos-fetch)
+Comment=Display system information with lightning ASCII art
+Exec=licos-fetch
+Icon=utilities-system-monitor
+Terminal=true
+Categories=System;Utility;
+StartupNotify=false

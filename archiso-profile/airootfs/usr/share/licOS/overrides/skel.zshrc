@@ -9,12 +9,14 @@ print -P "%F{cyan}║  %F{green}     Arch Linux with XFCE Desktop%F{cyan}       
 print -P "%F{cyan}║                                              ║%f"
 print -P "%F{cyan}╠══════════════════════════════════════════════╣%f"
 print -P "%F{cyan}║                                              ║%f"
+print -P "%F{cyan}║  %F{white}Type '%F{green}launcher%F{white}' to open the main menu%F{cyan}       ║%f"
 print -P "%F{cyan}║  %F{white}Type '%F{green}licos%F{white}' to start the installer%F{cyan}         ║%f"
 print -P "%F{cyan}║  %F{white}Type '%F{green}fetch%F{white}' for system info%F{cyan}               ║%f"
 print -P "%F{cyan}║                                              ║%f"
 print -P "%F{cyan}╚══════════════════════════════════════════════╝%f"
 print -P ""
 
+alias launcher='licos-launcher'
 alias licos='/root/licOS/licos-installer'
 alias fetch='licos-fetch'
 alias welcome='licos-welcome'
