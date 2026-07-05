@@ -131,10 +131,14 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
     "install_failed": "Installation Failed!",
 
     "log_preparing": "Preparing disk...",
+    "log_encrypting": "Setting up LUKS encryption...",
+    "log_encrypt_done": "LUKS encryption complete!",
     "log_formatting": "Formatting partitions...",
     "log_mounting": "Mounting partitions...",
     "log_installing_base": "Installing base system (pacstrap)...",
     "log_generating_fstab": "Generating fstab...",
+    "log_mkinitcpio_encrypt": "Configuring mkinitcpio for encryption...",
+    "log_mkinitcpio_encrypt_done": "mkinitcpio encryption hooks applied!",
     "log_configuring": "Configuring system...",
     "log_bootloader": "Installing bootloader...",
     "log_enabling_dm": "Enabling display manager...",
@@ -293,10 +297,14 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
     "install_failed": "安装失败！",
 
     "log_preparing": "准备磁盘...",
+    "log_encrypting": "设置 LUKS 加密...",
+    "log_encrypt_done": "LUKS 加密完成！",
     "log_formatting": "格式化分区...",
     "log_mounting": "挂载分区...",
     "log_installing_base": "安装基础系统（pacstrap）...",
     "log_generating_fstab": "生成 fstab...",
+    "log_mkinitcpio_encrypt": "配置 mkinitcpio 加密钩子...",
+    "log_mkinitcpio_encrypt_done": "mkinitcpio 加密钩子已应用！",
     "log_configuring": "配置系统...",
     "log_bootloader": "安装引导程序...",
     "log_enabling_dm": "启用显示管理器...",
@@ -450,10 +458,14 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
     "install_failed": "安裝失敗！",
 
     "log_preparing": "準備磁碟...",
+    "log_encrypting": "設定 LUKS 加密...",
+    "log_encrypt_done": "LUKS 加密完成！",
     "log_formatting": "格式化分割區...",
     "log_mounting": "掛載分割區...",
-    "log_installing_base": "安裝基礎系統（pacstrap）...",
+    "log_installing_base": "安裝基礎系統（pacstalk）...",
     "log_generating_fstab": "產生 fstab...",
+    "log_mkinitcpio_encrypt": "設定 mkinitcpio 加密鉤子...",
+    "log_mkinitcpio_encrypt_done": "mkinitcpio 加密鉤子已套用！",
     "log_configuring": "配置系統...",
     "log_bootloader": "安裝引導程式...",
     "log_enabling_dm": "啟用顯示管理器...",
@@ -1128,3 +1140,4 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
 },
 
 }
+#hello world

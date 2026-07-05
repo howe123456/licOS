@@ -1,7 +1,7 @@
 import os
 
 APP_NAME = "licOS"
-APP_VERSION = "2.0.0"
+APP_VERSION = "3.0.0"
 APP_TITLE = f"{APP_NAME} Installer v{APP_VERSION}"
 
 DEFAULT_LOCALE = "en_US.UTF-8"
@@ -138,13 +138,9 @@ CHROOT_COMMANDS = [
      "::1 localhost\n"
      "127.0.1.1 {hostname}.localdomain {hostname}\n"
      "EOF"),
-    ("Setting root password",
-     "printf '%s\\n' '{root_password}' '{root_password}' | passwd"),
     ("Creating user",
      "useradd -m -G wheel,audio,video,storage,power,network "
      "-s /bin/bash {username}"),
-    ("Setting user password",
-     "printf '%s\\n' '{user_password}' '{user_password}' | passwd {username}"),
     ("Configuring sudo",
      "echo '%wheel ALL=(ALL:ALL) ALL' > /etc/sudoers.d/wheel"),
     ("Enabling NetworkManager",
@@ -170,3 +166,4 @@ BOOTLOADER_BIOS_CMDS = {
         "grub-mkconfig -o /boot/grub/grub.cfg",
     ],
 }
+#hello world

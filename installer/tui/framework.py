@@ -1,6 +1,7 @@
 import curses
 import threading
 from typing import List, Optional, Callable, Any
+from installer.core.utils import get_disk_prefix, get_base_disk
 
 
 COLOR_DEFINITIONS = {
@@ -43,34 +44,7 @@ def color(pair_name: str) -> int:
     return curses.color_pair(COLOR_DEFINITIONS.get(pair_name, 0))
 
 
-def get_disk_prefix(disk: str) -> str:
-    if disk.startswith("/dev/nvme"):
-        return f"{disk}p"
-    if disk.startswith("/dev/mmcblk"):
-        return f"{disk}p"
-    if disk.startswith("/dev/loop"):
-        return f"{disk}p"
-    return disk
 
-
-def get_base_disk(dev: str) -> str:
-    import re
-    if dev.startswith("/dev/nvme"):
-        m = re.match(r"(/dev/nvme\d+n\d+)", dev)
-        if m:
-            return m.group(1)
-    if dev.startswith("/dev/mmcblk"):
-        m = re.match(r"(/dev/mmcblk\d+)", dev)
-        if m:
-            return m.group(1)
-    if dev.startswith("/dev/loop"):
-        m = re.match(r"(/dev/loop\d+)", dev)
-        if m:
-            return m.group(1)
-    m = re.match(r"(/dev/[a-z]+)", dev)
-    if m:
-        return m.group(1)
-    return dev
 
 
 class Button:
@@ -622,11 +596,7 @@ class Application:
     def _get_prev_screen(self) -> Optional[str]:
         if not self.steps or self.current_step_idx <= 0:
             return None
-        ordered = list(self.screens.keys())
-        idx = ordered.index(self.current_screen) if self.current_screen in ordered else -1
-        if idx > 0:
-            return ordered[idx - 1]
-        return None
+        return self.steps[self.current_step_idx - 1]
 
     def step_label(self, key: str) -> str:
         from installer.i18n.translations import _

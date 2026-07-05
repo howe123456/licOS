@@ -422,6 +422,7 @@ class PartitionScreen(Screen):
 
         self.mode_selected = 0
         self.modes = [_("partition_auto"), _("partition_manual")]
+        self.encrypt_enabled = False
 
         self.buttons = [
             Button("", callback=self.on_next),
@@ -431,7 +432,9 @@ class PartitionScreen(Screen):
         self.buttons[0].selected = True
 
     def handle_key(self, key: int) -> Optional[str]:
-        if key == curses.KEY_UP:
+        if key == ord("e") or key == ord("E"):
+            self.encrypt_enabled = not self.encrypt_enabled
+        elif key == curses.KEY_UP:
             self.mode_selected = (self.mode_selected - 1) % len(self.modes)
         elif key == curses.KEY_DOWN:
             self.mode_selected = (self.mode_selected + 1) % len(self.modes)
@@ -471,7 +474,14 @@ class PartitionScreen(Screen):
             win.addstr(desc_y + 2, cx + 6, _("partition_swap"), color("dim"))
             win.addstr(desc_y + 3, cx + 6, _("partition_root"), color("dim"))
 
-        btn_y = desc_y + 6
+        # Encryption toggle
+        enc_y = desc_y + 5
+        enc_marker = "\u2713" if self.encrypt_enabled else " "
+        enc_label = f"  [E] Encrypt disk (LUKS2): [{enc_marker}]"
+        enc_attr = (color("highlight") | curses.A_BOLD) if self.encrypt_enabled else color("normal")
+        win.addstr(enc_y, cx + 4, enc_label, enc_attr)
+
+        btn_y = enc_y + 2
         btn_total_w = sum(b.width for b in self.buttons) + 4
         btn_x = (max_x - btn_total_w) // 2
         for b in self.buttons:
@@ -484,6 +494,7 @@ class PartitionScreen(Screen):
         self.app.data["partition_mode"] = (
             "auto" if self.mode_selected == 0 else "manual"
         )
+        self.app.data["encrypt"] = self.encrypt_enabled
         self.app.switch_to("desktop")
 
 
@@ -823,40 +834,9 @@ class InstallScreen(Screen):
             config.display_manager = de_info.get("dm")
             config.additional_groups = d.get("additional_packages", [])
 
-            disk = config.disk
-            fs = config.filesystem
-            uefi = True
-
-            if uefi:
-                config.partitions = {
-                    "/boot": {
-                        "start": "1MiB", "end": "513MiB",
-                        "fs_type": "fat32", "boot": True,
-                    },
-                    "swap": {
-                        "start": "513MiB", "end": "2561MiB",
-                        "fs_type": "linux-swap", "boot": False,
-                    },
-                    "/": {
-                        "start": "2561MiB", "end": "100%",
-                        "fs_type": fs, "boot": False,
-                    },
-                }
-            else:
-                config.partitions = {
-                    "/boot": {
-                        "start": "1MiB", "end": "513MiB",
-                        "fs_type": "ext4", "boot": False,
-                    },
-                    "swap": {
-                        "start": "513MiB", "end": "2561MiB",
-                        "fs_type": "linux-swap", "boot": False,
-                    },
-                    "/": {
-                        "start": "2561MiB", "end": "100%",
-                        "fs_type": fs, "boot": False,
-                    },
-                }
+            from installer.core.utils import detect_uefi
+            uefi = detect_uefi()
+            config.set_default_partitions(uefi=uefi)
 
             installer = Installer(config, log_callback=self._log)
             installer.install()

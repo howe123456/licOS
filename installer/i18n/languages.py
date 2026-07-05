@@ -82,3 +82,4 @@ def get_locale_for_lang(lang_code: str) -> str:
         "it": "it_IT.UTF-8",
     }
     return mapping.get(lang_code, "en_US.UTF-8")
+#hello world

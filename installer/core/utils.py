@@ -116,12 +116,9 @@ def get_cpu_info() -> str:
 
 
 def check_internet() -> bool:
-    try:
-        run_cmd(["ping", "-c", "1", "-W", "3", "archlinux.org"],
-                check=False)
-        return True
-    except Exception:
-        return False
+    result = run_cmd(["ping", "-c", "1", "-W", "3", "archlinux.org"],
+                     check=False)
+    return result.returncode == 0
 
 
 def check_arch_iso() -> bool:
@@ -176,3 +173,4 @@ def get_base_disk(dev: str) -> str:
     if m:
         return m.group(1)
     return dev
+#hello world 

@@ -31,3 +31,4 @@ export PYTHONPATH="$SCRIPT_DIR:$PYTHONPATH"
 
 echo "Starting licOS Installer..."
 exec "$PYTHON" -m installer "$@"
+#hello world
