@@ -1,12 +1,17 @@
 # ╲ ╳ ╱ licOS
 
-> Arch Linux-based distribution with a modern TUI installer, animated Plymouth boot splash, and XFCE desktop environment — v3.0
+> Arch Linux-based distribution with a modern TUI installer, animated Plymouth boot splash, and XFCE desktop environment — v2.1
 
 licOS is an Arch Linux-based distribution focused on simplicity and modern desktop computing. It features a curses-based terminal UI installer with support for 12 languages, LUKS encryption, flexible partitioning, a lightning bolt logo that animates on boot and in the installer, and a showcase of the XFCE dark desktop theme (licOS-dark) via an interactive TUI launcher.
 
 ## Features
 
-### v3.0
+### v2.1
+
+- **CJK Font Fix** — wqy-zenhei now installed via pacman (instead of direct file placement), ensuring fontconfig cache is built during ISO creation and CJK renders immediately in XFCE terminal — no boot-time race
+- **licos-cjk.service** — Dedicated service runs `fc-cache -f` before `graphical.target` for guaranteed font availability
+
+### v2.0
 
 - **Plymouth Boot Splash** — Lightning spark animation with progress bar on boot
 - **XFCE Desktop** — Pre-configured dark theme (licOS-dark) with lightning wallpaper
@@ -35,7 +40,7 @@ licOS is an Arch Linux-based distribution focused on simplicity and modern deskt
 
 ### Boot from ISO
 
-1. Download the latest ISO from [Releases](https://github.com/howe123456/licOS/releases/tag/v3.0.0)
+1. Download the latest ISO from [Releases](https://github.com/howe123456/licOS/releases/tag/v2.1)
 2. Write to USB:
    ```bash
    sudo dd bs=4M if=licOS-*.iso of=/dev/sdX status=progress
