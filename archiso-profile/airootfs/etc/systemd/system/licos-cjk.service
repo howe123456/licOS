@@ -1,0 +1,13 @@
+[Unit]
+Description=licOS CJK font setup
+After=local-fs.target
+Before=graphical.target
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/fc-cache -f
+
+[Install]
+WantedBy=sysinit.target

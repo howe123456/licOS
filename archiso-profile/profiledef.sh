@@ -4,8 +4,8 @@
 iso_name="licOS"
 iso_label="LICOS_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m)"
 iso_publisher="licOS <https://licos.dev>"
-iso_application="licOS Linux Live/Installer DVD v3.0"
-iso_version="$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m.%d)"
+iso_application="licOS Linux Live/Installer DVD v2.1"
+iso_version="2.1"
 install_dir="licos"
 buildmodes=('iso')
 bootmodes=('bios.syslinux'
@@ -19,6 +19,7 @@ file_permissions=(
   ["/root"]="0:0:750"
   ["/root/.automated_script.sh"]="0:0:755"
   ["/etc/systemd/system/licos-setup.service"]="0:0:644"
+  ["/etc/systemd/system/licos-cjk.service"]="0:0:644"
   ["/etc/systemd/system/licos-locale.service"]="0:0:644"
   ["/etc/locale.gen"]="0:0:644"
   ["/etc/fonts/local.conf"]="0:0:644"
