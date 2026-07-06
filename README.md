@@ -51,17 +51,30 @@ licOS is an Arch Linux-based distribution focused on simplicity and modern deskt
 ### Build from Source
 
 ```bash
-# Install dependencies
-sudo pacman -S archiso
+# Install dependencies (optional: nginx for local caching proxy)
+sudo pacman -S archiso nginx
 
 # Clone and build
 git clone https://github.com/licOS/licOS.git
 cd licOS
+
+# Quick build (pre-downloads packages, uses cache proxy, incremental)
+sudo ./archiso-profile/build.sh
+
+# Manual build
 sudo mkarchiso -v archiso-profile/
 
 # Output ISO in out/ (~1.8 GB)
 ls out/*.iso
 ```
+
+> **Build acceleration**:
+> - `build.sh` auto-starts a local nginx caching proxy at `localhost:8080`
+> - Packages are pre-downloaded to host cache before `mkarchiso` runs
+> - The USTC mirror is used as primary (fastest for China)
+> - `ParallelDownloads=20` for concurrent package download
+> - `work/` directory is preserved between runs for incremental rebuilds
+> - Set up nginx proxy: `sudo systemctl enable --now nginx`
 
 ### Run in QEMU
 
